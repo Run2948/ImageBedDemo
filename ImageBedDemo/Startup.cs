@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ImageBedDemo.Configs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +17,10 @@ namespace ImageBedDemo
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Configuration.Bind("Imgbed:AliyunOSS", AppConfig.AliOssConfig);
+            Configuration.Bind("Imgbed:Gitlab", AppConfig.GitlabConfig);
+            Configuration.Bind("Imgbed:Gitee", AppConfig.GiteeConfig);
+            Configuration.Bind("Imgbed:ImgbedDomains", AppConfig.ImgbedDomains);
         }
 
         public IConfiguration Configuration { get; }
@@ -30,7 +35,7 @@ namespace ImageBedDemo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddHttpClient(); //注入HttpClient
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
