@@ -1,11 +1,11 @@
-﻿# 上传文件到码云仓库【搭建自己的图床】
+﻿# .NET CORE上传文件到码云仓库【搭建自己的图床】
 
 > 先建一个公共仓库(随意提交一个README文件或者.gitignore文件保证master分支的存在)，然后到gitee的个人设置页面找到【私人令牌】菜单创建一个access_token。Gitee官方还友好的提供了基于swagger的API文档和调试页面： https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath
 
 ## 搭建步骤
 
 #### 1.新建一个名为`imagebed`的公有仓库
-* 码云正常建库步骤，注意设置为`公开的`仓库即可
+* 码云正常建库步骤即可
 #### 2.为`imagebed`仓库创建`master`主分支
 * [推荐]可以从本地向仓库随意提交一个README文件或.gitignore文件
 * 或者你用自己的方式也行，只要保证仓库具有一个`master`分支即可
